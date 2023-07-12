@@ -5,5 +5,5 @@ metadata:
   name: talos-storage-180
   namespace: openebs
 spec:
-  node: talos-amw-4d1
+  node: talos-eew-jbt
   disks: ["/dev/sdb"]
