@@ -1,0 +1,39 @@
+---
+version: '3'
+
+env:
+  CLUSTER_NAME: Hakurei-Shrine
+  CLUSTER_ENDPOINT: https://192.168.1.170:6443
+  TALOS_GEN_DIR: "talos/generated"
+  TALOS_PATCH_DIR: "talos/patches"
+  TALOS_CONFIG_DIR: "$HOME/.talos/config"
+
+tasks:
+  generate:
+    desc: "Generate a configuration for talos"
+    cmds:
+      - talosctl gen config {{.CLUSTER_NAME}} {{.CLUSTER_ENDPOINT}} --config-patch @{{.TALOS_PATCH_DIR}}/extensions.yaml --config-patch @{{.TALOS_PATCH_DIR}}/cilium.yaml --config-patch @{{.TALOS_PATCH_DIR}}/metrics-server.yaml --config-patch-worker @{{.TALOS_PATCH_DIR}}/mayastor.yaml --output-dir {{.TALOS_GEN_DIR}}
+  copy-config:
+    desc: "Copy generated talos config to home directory"
+    cmds:
+      - cp {{.TALOS_GEN_DIR}}/talosconfig {{.TALOS_CONFIG_DIR}}
+  control-create:
+    desc: "Create a control plane node from maintanence mode"
+    cmds:
+      - talosctl apply-config --insecure --nodes $CTRL_IP --file {{.TALOS_GEN_DIR}}/controlplane.yaml
+  worker-create:
+    desc: "Create a worker node from maintanence mode"
+    cmds:
+      - talosctl apply-config --insecure --nodes $WORKER_IP --file {{.TALOS_GEN_DIR}}/worker.yaml
+  bootstrap:
+    desc: "Bootstrap etcd on to one control plane"
+    cmds:
+      - talosctl bootstrap
+  patch-config:
+    desc: "Patch an already generated machine config"
+    cmds:
+      - talosctl machineconfig patch worker.yaml --patch @patch.yaml -o worker1.yaml
+  patch-node:
+    desc: "Patch a running talos node"
+    cmds:
+      - talosctl patch mc --nodes $IP --patch @patch.yaml

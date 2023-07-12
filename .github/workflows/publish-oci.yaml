@@ -1,0 +1,62 @@
+name: "Publish OCI artifact"
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/publish-oci.yaml
+      - kubernetes/**
+
+permissions: write-all
+
+env:
+  OCI_REPO: "oci://ghcr.io/neutralalice/manifests/${{ github.event.repository.name }}"
+  GHCR_REPO: "ghcr.io/neutralalice/manifests/${{ github.event.repository.name }}"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      COSIGN_EXPERIMENTAL: "true"
+      COSIGN_YES: "true"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@96f53100ba2a5449eb71d2e6604bbcd94b9449b5 # v3
+
+      - name: Setup Flux CLI
+        uses: fluxcd/flux2/action@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Login to GHCR
+        uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc # v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create OCI artifact
+        run: |
+          flux push artifact "$OCI_REPO:$(git rev-parse --short HEAD)" \
+            --path="./kubernetes" \
+            --source="$(git config --get remote.origin.url)" \
+            --revision="$(git branch --show-current)@sha1:$(git rev-parse HEAD)"
+
+      - name: Create OCI artifact tag
+        run: |
+          flux tag artifact "$OCI_REPO:$(git rev-parse --short HEAD)" --tag main
+
+      - uses: imjasonh/setup-crane@00c9e93efa4e1138c9a7a5c594acd6c75a2fbf0c # v0.3
+
+      - uses: sigstore/cosign-installer@main
+
+      - name: Get the digest of the OCI artifact
+        id: crane
+        run: |
+          DIGEST=$(crane digest "$GHCR_REPO:$(git rev-parse --short HEAD)")
+          echo "DIGEST=$DIGEST" >> $GITHUB_OUTPUT
+
+      - name: Sign the OCI artifact
+        run: cosign sign "$GHCR_REPO@${{ steps.crane.outputs.DIGEST }}" -y

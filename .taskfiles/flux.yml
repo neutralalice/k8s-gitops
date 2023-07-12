@@ -1,0 +1,17 @@
+---
+version: '3'
+
+tasks:
+  bootstrap:
+    desc: "Bootstrap flux v2 and deploy to cluster"
+    cmds:
+      - cmd: |
+          flux bootstrap github \
+            --owner="{{.GITHUB_USER}}" \
+            --repository="{{.GITHUB_REPO}}" \
+            --path=kubernetes/clusters/"{{.CLUSTER}}" \
+            --branch="{{.GITHUB_BRANCH}}" \
+            --personal=true \
+            --private=false \
+            {{.CLI_ARGS}}
+        silent: false

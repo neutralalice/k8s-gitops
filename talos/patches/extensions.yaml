@@ -1,0 +1,8 @@
+# https://github.com/siderolabs/extensions
+
+- op: add
+  path: /machine/install/extensions
+  value:
+    - image: ghcr.io/siderolabs/i915-ucode:20230515
+    - image: ghcr.io/siderolabs/intel-ucode:20230613
+    - image: ghcr.io/siderolabs/qemu-guest-agent:8.0.2

@@ -1,0 +1,16 @@
+# https://www.talos.dev/v1.4/kubernetes-guides/network/deploying-cilium/#machine-config-preparation
+
+- op: add
+  path: /cluster/network/cni
+  value:
+    name: custom
+    urls:
+      - https://raw.githubusercontent.com/neutralalice/k8s-gitops/main/talos/integrations/cilium/cilium.yaml
+- op: add
+  path: /cluster/proxy
+  value:
+    disabled: true
+- op: add
+  path: /cluster/extraManifests
+  value:
+    - https://github.com/kubernetes-sigs/gateway-api/releases/download/v0.7.1/standard-install.yaml

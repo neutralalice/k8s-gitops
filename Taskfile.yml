@@ -1,0 +1,28 @@
+---
+version: '3'
+
+vars:
+  CLUSTER: talos-0
+  GITHUB_BRANCH: main
+  GITHUB_REPO: k8s-gitops
+  GITHUB_USER: neutralalice
+
+includes:
+  flux:
+    optional: true
+    taskfile: ./.taskfiles/flux.yml
+  talos:
+    optional: true
+    taskfile: ./.taskfiles/talos.yml
+
+tasks:
+  flux:
+    desc: "Bootstrap Flux v2 into a cluster"
+    cmds:
+      - task: flux:bootstrap
+  talos:
+    desc: "prepare talos files"
+    cmds:
+      - task: talos:generate
+      - task: talos:control-create
+      - task: talos:worker-create
