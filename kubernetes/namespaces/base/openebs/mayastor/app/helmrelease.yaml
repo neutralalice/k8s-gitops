@@ -40,7 +40,7 @@ spec:
   maxHistory: 3
   values:
     etcd:
-      storageClass: "manual"
+      storageClassName: "manual"
     io_engine:
       resources:
         limits:
