@@ -5,5 +5,7 @@ resources:
   - ../../base/flux-system/addons/ks.yaml
   - ../../base/kube-system
   - ../../base/kube-system/cilium/ks.yaml
+  - ../../base/network-system
+  - ../../base/network-system/metallb/ks.yaml
   - ../../base/openebs
   - ../../base/openebs/mayastor/ks.yaml
