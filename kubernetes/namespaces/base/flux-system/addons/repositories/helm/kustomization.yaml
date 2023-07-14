@@ -7,3 +7,4 @@ resources:
   - mayastor-charts.yaml
   - metallb-charts.yaml
   - metrics-server-charts.yaml
+  - postfinance-charts.yaml
