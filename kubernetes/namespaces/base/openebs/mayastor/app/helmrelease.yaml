@@ -40,6 +40,7 @@ spec:
   maxHistory: 3
   values:
     etcd:
+      replicaCount: 1
       persistence:
         storageClass: "manual"
     io_engine:
