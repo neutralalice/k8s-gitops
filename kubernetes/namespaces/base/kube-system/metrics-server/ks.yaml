@@ -13,4 +13,4 @@ spec:
   wait: true
   sourceRef:
     kind: OCIRepository
-    name: cluster
+    name: k8s-gitops
