@@ -5,6 +5,8 @@ resources:
   - ../../base/flux-system/addons/ks.yaml
   - ../../base/kube-system
   - ../../base/kube-system/cilium/ks.yaml
+  - ../../base/kube-system/kubelet-csr-approver/ks.yaml
+  - ../../base/kube-system/metrics-server/ks.yaml
     #  - ../../base/network-system
     #  - ../../base/network-system/metallb/ks.yaml
   - ../../base/openebs

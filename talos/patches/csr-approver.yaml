@@ -1,0 +1,4 @@
+- op: add
+  path: /cluster/extraManifests
+  value:
+    - https://raw.githubusercontent.com/neutralalice/k8s-gitops/main/talos/integrations/kubelet-csr-approver/csr-approver.yaml
