@@ -6,3 +6,4 @@ resources:
   - cilium-charts.yaml
   - mayastor-charts.yaml
   - metallb-charts.yaml
+  - metrics-server-charts.yaml
