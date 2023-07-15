@@ -40,9 +40,13 @@ spec:
   maxHistory: 3
   values:
     etcd:
-      replicaCount: 1
+      livenessProbe:
+        initialDelaySeconds: 5
       persistence:
         storageClass: "manual"
+      readinessProbe:
+        initialDelaySeconds: 5
+      replicaCount: 1
     io_engine:
       resources:
         limits:
