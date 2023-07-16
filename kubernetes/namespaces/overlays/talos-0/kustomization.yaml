@@ -9,5 +9,5 @@ resources:
   - ../../base/kube-system/metrics-server/ks.yaml
     #  - ../../base/network-system
     #  - ../../base/network-system/metallb/ks.yaml
-  - ../../base/openebs
-  - ../../base/openebs/mayastor/ks.yaml
+    #  - ../../base/openebs
+    #  - ../../base/openebs/mayastor/ks.yaml
