@@ -42,8 +42,6 @@ spec:
     etcd:
       livenessProbe:
         initialDelaySeconds: 5
-      persistence:
-        storageClass: "manual"
       readinessProbe:
         initialDelaySeconds: 5
       replicaCount: 1

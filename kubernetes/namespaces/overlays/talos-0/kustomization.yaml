@@ -10,5 +10,5 @@ resources:
   - ../../base/kube-system/nfs-subdir-external-provisioner/ks.yaml
     #  - ../../base/network-system
     #  - ../../base/network-system/metallb/ks.yaml
-    #  - ../../base/openebs
-    #  - ../../base/openebs/mayastor/ks.yaml
+  - ../../base/openebs
+  - ../../base/openebs/mayastor/ks.yaml
