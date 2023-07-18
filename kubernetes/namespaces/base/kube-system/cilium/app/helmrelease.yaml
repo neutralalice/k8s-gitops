@@ -58,7 +58,7 @@ spec:
         serviceMonitor:
           enabled: false
     gatewayAPI:
-      enabled: true
+      enabled: false
   postRenderers:
     - kustomize:
         patches:
