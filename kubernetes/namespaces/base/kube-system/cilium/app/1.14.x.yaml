@@ -137,7 +137,7 @@ agent: true
 name: cilium
 
 # -- Roll out cilium agent pods automatically when configmap is updated.
-rollOutCiliumPods: false
+rollOutCiliumPods: true
 
 # -- Agent container image.
 image:
@@ -1606,7 +1606,7 @@ l2NeighDiscovery:
 l7Proxy: true
 
 # -- Enable Local Redirect Policy.
-localRedirectPolicy: false
+localRedirectPolicy: true
 
 # To include or exclude matched resources from cilium identity evaluation
 # labels: ""
