@@ -58,7 +58,7 @@ cluster:
   # -- (int) Unique ID of the cluster. Must be unique across all connected
   # clusters and in the range of 1 to 255. Only required for Cluster Mesh,
   # may be 0 if Cluster Mesh is not used.
-  id: 0
+  id: 1
 
 # -- Define serviceAccount names for components.
 # @default -- Component's fully qualified name.
@@ -137,7 +137,7 @@ agent: true
 name: cilium
 
 # -- Roll out cilium agent pods automatically when configmap is updated.
-rollOutCiliumPods: false
+rollOutCiliumPods: true
 
 # -- Agent container image.
 image:
@@ -234,7 +234,7 @@ securityContext:
   # -- User to run the pod with
   # runAsUser: 0
   # -- Run the pod with elevated privileges
-  privileged: false
+  privileged: true
   # -- SELinux options for the `cilium-agent` and init containers
   seLinuxOptions:
     level: 's0'
@@ -481,7 +481,7 @@ bpf:
 
   # -- (bool) Enable native IP masquerade support in eBPF
   # @default -- `false`
-  masquerade: ~
+  masquerade: true
 
   # -- (bool) Configure whether direct routing mode should route traffic via
   # host stack (true) or directly and more efficiently out of BPF (false) if
@@ -843,7 +843,7 @@ endpointStatus:
 endpointRoutes:
   # -- Enable use of per endpoint routes instead of routing via
   # the cilium_host interface.
-  enabled: false
+  enabled: true
 
 k8sNetworkPolicy:
   # -- Enable support for K8s NetworkPolicy
@@ -986,7 +986,14 @@ hubble:
     #
     #   --set hubble.metrics.enabled="{dns:query;ignoreAAAA,drop,tcp,flow,icmp,http}"
     #
-    enabled: ~
+    enabled:
+      - tcp
+      - icmp
+      - http
+      - flow
+      - drop
+      - dns:query
+      - port-distribution
     # -- Enables exporting hubble metrics in OpenMetrics format.
     enableOpenMetrics: true
     # -- Configure the port the hubble metric server listens on.
@@ -1016,7 +1023,7 @@ hubble:
     # grafana can import dashboards based on the label and value
     # ref: https://github.com/grafana/helm-charts/tree/main/charts/grafana#sidecar-for-dashboards
     dashboards:
-      enabled: false
+      enabled: true
       label: grafana_dashboard
       namespace: ~
       labelValue: "1"
@@ -1297,7 +1304,7 @@ hubble:
 
   ui:
     # -- Whether to enable the Hubble UI.
-    enabled: false
+    enabled: true
 
     standalone:
       # -- When true, it will allow installing the Hubble UI only, without checking dependencies.
@@ -1589,13 +1596,13 @@ readinessProbe:
 # -- Configure the kube-proxy replacement in Cilium BPF datapath
 # Valid options are "true", "false", "disabled" (deprecated), "partial" (deprecated), "strict" (deprecated).
 # ref: https://docs.cilium.io/en/stable/network/kubernetes/kubeproxy-free/
-#kubeProxyReplacement: "false"
+kubeProxyReplacement: "true"
 
 # -- healthz server bind address for the kube-proxy replacement.
 # To enable set the value to '0.0.0.0:10256' for all ipv4
 # addresses and this '[::]:10256' for all ipv6 addresses.
 # By default it is disabled.
-kubeProxyReplacementHealthzBindAddr: ""
+kubeProxyReplacementHealthzBindAddr: "0.0.0.0:10256"
 
 l2NeighDiscovery:
   # -- Enable L2 neighbor discovery in the agent
@@ -1703,11 +1710,11 @@ loadBalancer:
 
   # -- algorithm is the name of the load balancing algorithm for backend
   # selection e.g. random or maglev
-  # algorithm: random
+  algorithm: maglev
 
   # -- mode is the operation mode of load balancing for remote backends
   # e.g. snat, dsr, hybrid
-  # mode: snat
+  mode: dsr
 
   # -- acceleration is the option to accelerate service handling via XDP
   # e.g. native, disabled
@@ -2106,7 +2113,7 @@ tls:
 #   - disabled
 #   - vxlan (default)
 #   - geneve
-tunnel: ""
+tunnel: "disabled"
 
 # -- Tunneling protocol to use in tunneling mode and for ad-hoc tunnels.
 # @default -- `"vxlan"`
