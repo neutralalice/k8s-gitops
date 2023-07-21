@@ -14,7 +14,7 @@ spec:
         kind: HelmRepository
         name: calibre-charts
         namespace: flux-system
-      version: 10.0.30
+      version: 10.0.32
   install:
     timeout: 10m
     replace: true
