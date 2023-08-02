@@ -67,7 +67,8 @@ go-task flux
 | Device                                                                                 | Description              | Quantity | CPU     | RAM      | Architecture | Operating System                      | Notes |
 | -------------------------------------------------------------------------------------- | ------------------------ | -------- | ------- | -------- | ------------ | ------------------------------------- | ----- |
 | Synology DS218play                                  | NAS                   | 1        | 4 Cores | 1GB RAM | AARCH64        | [DSM 7](https://www.synology.com/en-us/dsm)              |       |
-| HP EliteDesk 800 (g4)                             | Hypervisor | 1        | 6 Cores | 24GB RAM  | AMD64        | [Proxmox 7.4](https://proxmox.com/en/) |       |
+| Intel NUC12WSHi3                                  | Hypervisor                | 1        | 10 Cores | 32GB RAM | AMD64       | [Proxmox8.0](https://proxmox.com/en/)              |       |
+| HP EliteDesk 800 (g4)                             | Hypervisor | 1        | 6 Cores | 32GB RAM  | AMD64        | [Proxmox 8.0](https://proxmox.com/en/) |       |
 
 ## ☁️ Cloud Services
 
