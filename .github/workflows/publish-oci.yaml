@@ -22,16 +22,22 @@ jobs:
       COSIGN_EXPERIMENTAL: "true"
       COSIGN_YES: "true"
     steps:
-      - name: Checkout
-        uses: actions/checkout@96f53100ba2a5449eb71d2e6604bbcd94b9449b5 # v3
+      - name: Checkout Repository
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
 
-      - name: Setup Flux CLI
+      - name: Setup flux CLI tool
         uses: fluxcd/flux2/action@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Setup crane CLI tool
+        uses: imjasonh/setup-crane@31b88efe9de28ae0ffa220711af4b60be9435f6e # v0.4
+
+      - name: Setup cogin CLI tool
+        uses: sigstore/cosign-installer@59acb6260d9c0ba8f4a2f9d9b48431a222b68e20 # v3.5.0
+
       - name: Login to GHCR
-        uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc # v2
+        uses: docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446 # v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -47,10 +53,6 @@ jobs:
       - name: Create OCI artifact tag
         run: |
           flux tag artifact "$OCI_REPO:$(git rev-parse --short HEAD)" --tag main
-
-      - uses: imjasonh/setup-crane@00c9e93efa4e1138c9a7a5c594acd6c75a2fbf0c # v0.3
-
-      - uses: sigstore/cosign-installer@main
 
       - name: Get the digest of the OCI artifact
         id: crane
