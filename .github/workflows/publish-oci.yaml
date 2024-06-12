@@ -18,22 +18,19 @@ env:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    env:
-      COSIGN_EXPERIMENTAL: "true"
-      COSIGN_YES: "true"
     steps:
       - name: Checkout Repository
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
 
       - name: Setup flux CLI tool
-        uses: fluxcd/flux2/action@main
+        uses: fluxcd/flux2/action@896e0fa46d5107a05e953dd0a5261d78a145ec8c # v2.3.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup crane CLI tool
         uses: imjasonh/setup-crane@31b88efe9de28ae0ffa220711af4b60be9435f6e # v0.4
 
-      - name: Setup cogin CLI tool
+      - name: Setup cosign CLI tool
         uses: sigstore/cosign-installer@59acb6260d9c0ba8f4a2f9d9b48431a222b68e20 # v3.5.0
 
       - name: Login to GHCR
