@@ -66,9 +66,10 @@ go-task flux
 
 | Device                                                                                 | Description              | Quantity | CPU     | RAM      | Architecture | Operating System                      | Notes |
 | -------------------------------------------------------------------------------------- | ------------------------ | -------- | ------- | -------- | ------------ | ------------------------------------- | ----- |
-| Synology DS218play                                  | NAS                   | 1        | 4 Cores | 1GB RAM | AARCH64        | [DSM 7](https://www.synology.com/en-us/dsm)              |       |
-| Intel NUC12WSHi3                                  | Hypervisor                | 1        | 10 Cores | 32GB RAM | AMD64       | [Proxmox8.0](https://proxmox.com/en/)              |       |
-| HP EliteDesk 800 (g4)                             | Hypervisor | 1        | 6 Cores | 32GB RAM  | AMD64        | [Proxmox 8.0](https://proxmox.com/en/) |       |
+| Synology DS218play                                | NAS        | 1 | 04 Cores | 01GB RAM | AARCH64 | [DSM 7](https://www.synology.com/en-us/dsm) | |
+| Intel NUC12WSHi3                                  | Hypervisor | 1 | 10 Cores | 32GB RAM | AMD64   | [Proxmox 8.3](https://proxmox.com/en/) | |
+| Intel NUC12WSHi5 Slim                             | Hypervisor | 1 | 12 Cores | 64GB RAM | AMD64   | [Proxmox 8.3](https://proxmox.com/en/) | |
+| HP EliteDesk 800 (g4)                             | Hypervisor | 1 | 06 Cores | 32GB RAM | AMD64   | [Proxmox 8.3](https://proxmox.com/en/) | |
 
 ## ☁️ Cloud Services
 
@@ -84,9 +85,9 @@ go-task flux
 |                                                                                                                             | Name                                             | Description                                                                                                                |
 | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
 | <img width="32" src="https://www.talos.dev/images/logo.svg">                                                                | [Talos Linux](https://www.talos.dev/)            | Talos Linux is Linux designed for Kubernetes                                                                               |
-| <img width="32" src="https://cncf-branding.netlify.app/img/projects/kubernetes/icon/color/kubernetes-icon-color.svg">       | [Kubernetes](https://kubernetes.io/)             | An open-source system for automating deployment, scaling, and management of containerized applications                     |
-| <img width="32" src="https://cncf-branding.netlify.app/img/projects/flux/icon/color/flux-icon-color.svg">                   | [FluxCD](https://fluxcd.io/)                     | GitOps tool for deploying applications to Kubernetes                                                                       |
-| <img width="32" src="https://cncf-branding.netlify.app/img/projects/helm/icon/color/helm-icon-color.svg">                   | [Helm](https://helm.sh)                          | The Kubernetes package manager                                                                                             |
+| <img width="32" src="https://github.com/cncf/artwork/blob/main/projects/kubernetes/icon/color/kubernetes-icon-color.svg">       | [Kubernetes](https://kubernetes.io/)             | An open-source system for automating deployment, scaling, and management of containerized applications                     |
+| <img width="32" src="https://github.com/cncf/artwork/blob/main/projects/flux/icon/color/flux-icon-color.svg">                   | [FluxCD](https://fluxcd.io/)                     | GitOps tool for deploying applications to Kubernetes                                                                       |
+| <img width="32" src="https://github.com/cncf/artwork/blob/main/projects/helm/icon/color/helm-icon-color.svg">                   | [Helm](https://helm.sh)                          | The Kubernetes package manager                                                                                             |
 | <img width="32" src="https://cncf-branding.netlify.app/img/projects/openebs/icon/color/openebs-icon-color.svg">             | [Mayastor](mayastor.gitbook.io/introduction/)                    | Container-attached storage CNCF subproject of OpenEBS                                                                                                 |
-| <img width="32" src="https://landscape.cncf.io/logos/cert-manager.svg">                                                     | [Cert Manager](https://cert-manager.io/)         | X.509 certificate management for Kubernetes                                                                                |
+| <img width="32" src="https://github.com/cncf/artwork/blob/main/projects/cert-manager/icon/color/cert-manager-icon-color.svg">                                                     | [Cert Manager](https://cert-manager.io/)         | X.509 certificate management for Kubernetes                                                                                |
 
