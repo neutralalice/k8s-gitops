@@ -21,7 +21,15 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
-
+      
+      - name: Setup nixpkgs
+        uses: cachix/install-nix-action@ba0dd844c9180cbf77aa72a116d6fbc515d0e87b # v27
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+      
+      - name: Print nixpkgs version
+        run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
+        
       - name: Setup flux CLI tool
         uses: fluxcd/flux2/action@896e0fa46d5107a05e953dd0a5261d78a145ec8c # v2.3.0
         with:
@@ -45,8 +53,7 @@ jobs:
           flux push artifact "$OCI_REPO:$(git rev-parse --short HEAD)" \
             --path="./kubernetes" \
             --source="$(git config --get remote.origin.url)" \
-            --revision="$(git branch --show-current)@sha1:$(git rev-parse HEAD)" \
-            --reproducible
+            --revision="$(git branch --show-current)@sha1:$(git rev-parse HEAD)"
 
       - name: Create OCI artifact tag
         run: |
