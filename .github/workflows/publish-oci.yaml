@@ -54,7 +54,7 @@ jobs:
             --path="./kubernetes" \
             --source="$(git config --get remote.origin.url)" \
             --revision="$(git branch --show-current)@sha1:$(git rev-parse HEAD)" \
-            --annotatios="org.opencontainers.image.description=homelab"
+            --annotations="org.opencontainers.image.description=homelab"
 
       - name: Create OCI artifact tag
         run: |
