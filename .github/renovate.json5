@@ -9,16 +9,13 @@
     ":disableRateLimiting",
     ":dependencyDashboard",
     ":semanticCommits",
-    "github>neutralalice/k8s-gitops//.renovate/automerge.json5",
-    "github>neutralalice/k8s-gitops//.renovate/groups.json5",
-    "github>neutralalice/k8s-gitops//.renovate/labels.json5",
+    "github>neutralalice/k8s-gitops//.github/renovate/automerge.json5",
+    "github>neutralalice/k8s-gitops//.github/renovate/groups.json5",
+    "github>neutralalice/k8s-gitops//.github/renovate/labels.json5",
   ],
   dependencyDashboardAutoclose: true,
   dependencyDashboardTitle: "Renovate Dashboard",
   suppressNotifications: ["prEditedNotification", "prIgnoreNotification"],
-  "pre-commit": {
-    "enabled": true
-  },
   flux: {
     managerFilePatterns: ["/(^|/)kubernetes/.+\\.ya?ml$/"]
   },

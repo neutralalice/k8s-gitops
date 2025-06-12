@@ -20,13 +20,14 @@ on:
           - warn
           - error
           - fatal
-        required: false
+        required: true
       version:
         description: Renovate Version
         default: latest
-        required: false
+        type: string
+        required: true
   schedule:
-    - cron: "0 * * * *"
+    - cron: "44 */2 * * *"
   push:
     branches:
       - main
@@ -60,7 +61,7 @@ jobs:
       - name: Renovate
         uses: renovatebot/github-action@12f8ed8e6a936a00dc66b628d224488ac406b5e8 # v42.0.5
         env:
-          LOG_LEVEL: "${{ inputs.logLevel || 'debug' }}"
+          LOG_LEVEL: "${{ inputs.logLevel || 'info' }}"
           RENOVATE_DRY_RUN: "${{ inputs.dryRun }}"
           RENOVATE_PLATFORM: github
           RENOVATE_PLATFORM_COMMIT: true
