@@ -67,8 +67,8 @@ go-task flux
 | Device                                                                                 | Description              | Quantity | CPU     | RAM      | Architecture | Operating System                      | Notes |
 | -------------------------------------------------------------------------------------- | ------------------------ | -------- | ------- | -------- | ------------ | ------------------------------------- | ----- |
 | Synology DS218play                                | NAS        | 1 | 04 Cores | 01GB RAM | AARCH64 | [DSM 7](https://www.synology.com/en-us/dsm) | |
-| Intel NUC12WSKi5                                  | Hypervisor | 2 | 12 Cores | 64GB RAM | AMD64   | [Proxmox 8.4](https://proxmox.com/en/) | |
-
+| Intel NUC12WSKi5                                  | Hypervisor | 3 | 12 Cores | 64GB RAM | AMD64   | [Proxmox 8.4](https://proxmox.com/en/) | |
+| Mokerlink 2G080110GS                              | Unmanaged Switch | 1 | x | x | x | [2.5G unmanaged switch](https://www.mokerlink.com/index.php?route=product/product&product_id=560)
 ## ☁️ Cloud Services
 
 | Service                                   | Description                                                                                                                     | Cost (USD/GBP)     |
