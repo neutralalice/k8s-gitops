@@ -31,7 +31,7 @@ jobs:
 #        run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
         
       - name: Setup flux CLI tool
-        uses: fluxcd/flux2/action@a48f81a66c4ca9fbd993233ab99dd03a7cfbe09a # v2.6.2
+        uses: fluxcd/flux2/action@bda4c8187e436462be0d072e728b67afa215c593 # v2.6.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
