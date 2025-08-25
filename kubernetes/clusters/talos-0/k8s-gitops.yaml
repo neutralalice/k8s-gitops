@@ -7,7 +7,7 @@ metadata:
 spec:
   interval: 1m
   ref:
-    tag: main@sha256:214981710c5796b5094ca50e0e6f8e3afbc1a9632f6097e418bdfdab20dac644
+    tag: main@sha256:693633fc45e3528e768b2de497c5ceb7847be1e400ed74f4503b99781f786b74
   url: oci://ghcr.io/neutralalice/manifests/k8s-gitops
   verify:
     provider: cosign
