@@ -14,7 +14,7 @@ spec:
         kind: HelmRepository
         name: cilium-charts
         namespace: flux-system
-      version: 1.18.3
+      version: 1.18.4
   install:
     timeout: 10m
     replace: true
