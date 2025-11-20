@@ -14,5 +14,5 @@ resources:
     #  - ../../base/network-system/metallb/ks.yaml
   - ../../base/jellyfin
   - ../../base/jellyfin/jellyfin/ks.yaml
-  - ../../base/openebs
-  - ../../base/openebs/mayastor/ks.yaml
+#  - ../../base/openebs
+#  - ../../base/openebs/mayastor/ks.yaml

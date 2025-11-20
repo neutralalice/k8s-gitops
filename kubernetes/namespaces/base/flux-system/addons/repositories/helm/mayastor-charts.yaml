@@ -1,9 +1,0 @@
----
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
-metadata:
-  name: mayastor-charts
-  namespace: flux-system
-spec:
-  interval: 120m0s
-  url: https://openebs.github.io/mayastor-extensions/

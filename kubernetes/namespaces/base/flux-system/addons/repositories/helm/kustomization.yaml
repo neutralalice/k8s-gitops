@@ -6,7 +6,7 @@ resources:
   - bjw-charts.yaml
   - calibre-charts.yaml
   - cilium-charts.yaml
-  - mayastor-charts.yaml
+#  - mayastor-charts.yaml
   - metallb-charts.yaml
   - metrics-server-charts.yaml
   - nfs-charts.yaml
