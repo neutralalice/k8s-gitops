@@ -1,1 +1,7 @@
 talos/generated
+kubeconfig
+talosconfig
+*.agekey
+*.pub
+*.key
+*.pem

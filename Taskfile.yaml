@@ -8,12 +8,8 @@ vars:
   GITHUB_USER: neutralalice
 
 includes:
-  flux:
-    optional: true
-    taskfile: ./.taskfiles/flux.yml
-  talos:
-    optional: true
-    taskfile: ./.taskfiles/talos.yml
+  flux: .taskfiles/flux.yml
+  talos: .taskfiles/talos.yml
 
 tasks:
   flux:
