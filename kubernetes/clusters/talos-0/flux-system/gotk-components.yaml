@@ -12978,7 +12978,7 @@ spec:
             resourceFieldRef:
               containerName: manager
               resource: limits.memory
-        image: ghcr.io/fluxcd/notification-controller:v1.6.0@sha256:80174ff676407af7a6feff67b0c2f100de9f7f89df4c26fc871e4d4c4006544d
+        image: ghcr.io/fluxcd/notification-controller:v1.7.5@sha256:ba723a55f7c7c7feedd50bb5db0ff2dd9a3b0ae85b50f61a0457184025b38c54
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
