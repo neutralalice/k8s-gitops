@@ -40,7 +40,7 @@ spec:
               value: Europe/London
           securityContext:
             privileged: true # Container must run as privileged inside of the pod, required for hardware acceleration
-          image: ghcr.io/linuxserver/jellyfin@sha256:9bc128a2a6f58f65da0dabc77d56e4a3f8c25ec6f491bb7d43efe95236321a6b
+          image: ghcr.io/linuxserver/jellyfin@sha256:313571f253bf1035809f6856bb063904456226ef3899b96e60ee4597b3477246
           imagePullPolicy: Always
           name: jellyfin
           ports:
